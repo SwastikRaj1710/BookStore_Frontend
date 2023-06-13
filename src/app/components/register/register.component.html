@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="main">
+        <div class="card1">
+            <mat-card>
+                <img mat-card-image src="../../../assets/images/login-signup.png">
+                <h2>Online Book Shopping</h2>
+            </mat-card>
+        </div>
+        <div class="card2">
+            <mat-card>
+                <div class="btns">
+                    <a routerLink="/login">
+                        LOGIN
+                    </a>
+                    <a routerLink="/register" class="registerLink">
+                        SIGNUP
+                    </a>
+                </div>
+                <div class="formContainer">
+                    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                        <p>Full Name</p>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="text" class="form-control" formControlName="fullname">
+                            <mat-error *ngIf="submitted && registerForm.get('fullname')?.hasError('required')">
+                                Full Name is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <p>Email Id</p>
+                        <mat-form-field appearance="outline">
+                            <!-- <mat-label>Email</mat-label> -->
+                            <input matInput type="email" class="form-control" formControlName="email">
+                            <mat-error *ngIf="submitted && registerForm.get('email')?.hasError('required')">
+                                Email is required
+                            </mat-error>
+                        </mat-form-field>
+                        
+                        <p>Password</p>
+                        <mat-form-field appearance="outline">
+                            <!-- <mat-label>Password</mat-label> -->
+                            <input matInput [type]="showPassword ? 'text' : 'password'" name="password" class="form-control" formControlName="password">
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                {{showPassword?'visibility_off':'visibility'}}
+                            </mat-icon>
+                            <mat-error>
+                                Enter password
+                            </mat-error>
+                        </mat-form-field>
+
+                        <p>Mobile Number</p>
+                        <mat-form-field appearance="outline">
+                            <input matInput type="text" class="form-control" formControlName="phone">
+                            <mat-error *ngIf="submitted && registerForm.get('phone')?.hasError('required')">
+                                Phone Number is required
+                            </mat-error>
+                        </mat-form-field>
+                
+                        <button mat-flat-button class="subBtn" routerLink="/register">Register</button>
+                    </form>
+                </div>               
+            </mat-card>
+        </div>
+    </div>
+</div>

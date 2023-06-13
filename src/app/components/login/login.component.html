@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="main">
+        <div class="card1">
+            <mat-card>
+                <img mat-card-image src="../../../assets/images/login-signup.png">
+                <h2>Online Book Shopping</h2>
+            </mat-card>
+        </div>
+        <div class="card2">
+            <mat-card>
+                <div class="btns">
+                    <a routerLink="/login" class="loginLink">
+                        LOGIN
+                    </a>
+                    <a routerLink="/register">
+                        SIGNUP
+                    </a>
+                </div>
+                <div class="formContainer">
+                    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <p>Email Id</p>
+                        <mat-form-field appearance="outline">
+                            <!-- <mat-label>Email</mat-label> -->
+                            <input matInput type="email" class="form-control" formControlName="email">
+                            <mat-error *ngIf="submitted && loginForm.get('email')?.hasError('required')">
+                                Email is required
+                            </mat-error>
+                        </mat-form-field>
+                        
+                        <p>Password</p>
+                        <mat-form-field appearance="outline">
+                            <!-- <mat-label>Password</mat-label> -->
+                            <input matInput [type]="showPassword ? 'text' : 'password'" name="password" class="form-control" formControlName="password">
+                            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                {{showPassword?'visibility_off':'visibility'}}
+                            </mat-icon>
+                            <mat-hint align="end">
+                                <a href="">Forgot Password?</a>
+                            </mat-hint>
+                            <mat-error>
+                                Enter password
+                            </mat-error>
+                        </mat-form-field>
+                
+                        <button mat-flat-button class="subBtn" routerLink="/login">Login</button>
+                    </form>
+                </div>
+
+                <div class="options">
+                    <div class="opt">
+                        <hr style="width:20%;text-align:left;margin-left:0; display: inline-block;">
+                        <p style="display: inline-block;">OR</p>
+                        <hr style="width:20%;text-align:right;margin-right:0; display: inline-block;">
+                    </div>
+
+                    <div class="optBtns">
+                        <button mat-flat-button class="fbBtn">Facebook</button>
+                        <button mat-flat-button class="googleBtn">Google</button>
+                    </div>
+                </div>
+                
+            </mat-card>
+        </div>
+    </div>
+</div>
