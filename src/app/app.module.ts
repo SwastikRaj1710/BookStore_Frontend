@@ -14,11 +14,11 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 import { AuthguardService } from './services/authGuardService/authguard.service';
-
-
+import { FilterPipe } from './pipe/filter.pipe';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,7 +29,7 @@ import { BookComponent } from './components/book/book.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { CartComponent } from './components/cart/cart.component';
-import { FilterPipe } from './pipe/filter.pipe';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
 
 
 
@@ -44,7 +44,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     BookDetailsComponent,
     WishlistComponent,
     CartComponent,
-    FilterPipe
+    FilterPipe,
+    OrderSuccessComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +61,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     HttpClientModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [AuthguardService],
   bootstrap: [AppComponent]

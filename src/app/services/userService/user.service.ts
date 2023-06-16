@@ -9,8 +9,10 @@ import { HttpService } from '../httpService/http.service';
 export class UserService {
 
   bUrl : string = environment.baseUrl;
-
-  constructor(private httpservice:HttpService) { }
+  tokenValue : string|null;
+  constructor(private httpservice:HttpService) {
+    this.tokenValue = localStorage.getItem('token');
+  }
   
   registration(data : {}) {
     let header = {
@@ -28,5 +30,15 @@ export class UserService {
       })
     }
     return this.httpservice.postMethod(this.bUrl + 'User/Login', data, false, header)
+  }
+
+  getDetails() {
+    let header = {
+      headers:new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.httpservice.getMethod(this.bUrl + 'User',true,header)
   }
 }

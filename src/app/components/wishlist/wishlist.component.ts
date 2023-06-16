@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BookService } from 'src/app/services/bookService/book.service';
-import { RefreshService } from 'src/app/services/refreshService/refresh.service';
 import { WishlistService } from 'src/app/services/wishlistService/wishlist.service';
 
 @Component({
@@ -14,7 +13,7 @@ export class WishlistComponent implements OnInit {
   ids:any=[];
   books:any=[];
   count:number=0;
-  constructor(private book:BookService, private wishlist:WishlistService, private snackBar:MatSnackBar, private refresh:RefreshService, private router:Router) { }
+  constructor(private book:BookService, private wishlist:WishlistService, private snackBar:MatSnackBar, private router:Router) { }
 
   ngOnInit(): void {
     this.getBooks();
@@ -24,7 +23,6 @@ export class WishlistComponent implements OnInit {
     this.wishlist.getBooks().subscribe((res:any)=>{
       this.ids = res.data;
       this.count = this.ids.length;
-      console.log(this.ids);
       this.getBookDetails();
     })
     
@@ -57,12 +55,6 @@ export class WishlistComponent implements OnInit {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currentUrl]);
-    });
-  }
-
-  subscribeToRefreshEvent() {
-    this.refresh.refreshBooks.subscribe(() => {
-      this.getBooks();
     });
   }
 

@@ -7,6 +7,7 @@ import { AuthenticationGuard } from './guard/authentication.guard';
 import { DisplayBookComponent } from './components/display-book/display-book.component';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/login', pathMatch:'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
     children : [{path: 'books', component:DisplayBookComponent},
                 {path:'book', component:BookDetailsComponent},
                 {path:'wishlist', component:WishlistComponent},
+                {path:'cart', component:CartComponent},
     ]
   }
 ];

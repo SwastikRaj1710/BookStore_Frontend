@@ -1,0 +1,200 @@
+.container {
+    width: 70%;
+    margin: 20px auto;
+}
+
+h5 {
+    color: #0A0102;
+}
+h5 a {
+    text-decoration: none;
+    color: #9D9D9D;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 1px solid #E4E4E4;
+    padding: 10px 0;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px -30px 50px;
+}
+
+.books-container {
+    display: flex;
+    flex-direction: column;
+}
+.books {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    // border-bottom: 1px solid #E4E4E4;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.data img {
+    width: 65px;
+    height: 85px;
+    margin-right: 50px;
+}
+
+.main h4,h5,h6 {
+    margin: 0;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h5 span {
+    text-decoration: line-through;
+    font-weight: lighter;
+}
+
+.options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.options button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.options button mat-icon {
+    width: 24px;
+    height: 24px;
+    background: #FAFAFA;
+    border-radius: 50%;
+    border: 1px solid #DBDBDB;
+}
+
+.options span {
+    border: 1px solid #DBDBDB;
+    background-color: white;
+    border-radius: 1px;
+    padding: 3px 15px;
+    width: 10px;
+}
+
+.remBtn {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    justify-content: end;
+    margin: 20px 50px;
+}
+.placeBtn {
+    background-color: #3371B5;
+    color: white;
+}
+
+
+
+.customer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 1px solid #E4E4E4;
+    padding: 10px 0;
+}
+
+.customer-title {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 50px 10px 50px;
+}
+
+.customer-title button {
+    border: 1px solid #A03037;
+}
+
+.customer-content {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 50px;
+    width: 60%;
+    justify-content: start;
+}
+
+.first, .second, .third, .fourth, .fifth {
+    display: flex;
+}
+
+.third {
+    flex-direction: column;
+}
+
+.third span {
+    width: 96% !important;
+}
+
+.second, .third, .fifth {
+    margin-bottom: 20px;
+}
+
+h3 {
+    width: 80%;
+    margin: 5px 0;
+}
+
+.customer span {
+    background-color: white;
+    border: 1px solid #DCDCDC;
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+}
+
+mat-radio-button {
+    margin-right: 100px;
+}
+
+.customerTab {
+    margin-top: 20px;
+    border: 1px solid #E4E4E4;
+    padding: 12.5px 50px;
+}
+
+.customerTab h2 {
+    margin: 0;
+}
+
+.orderTab {
+    margin-top: 20px;
+    border: 1px solid #E4E4E4;
+    padding: 12.5px 50px;
+}
+
+.orderTab h2 {
+    margin: 0;
+}
+
+.orderItems {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 1px solid #E4E4E4;
+    padding: 10px 0;
+}
+
+.orderItems h2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px;
+}

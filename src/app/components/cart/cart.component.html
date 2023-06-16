@@ -1,49 +1,116 @@
-<!-- <div class="container">
+<div class="container">
     <h5><a routerLink="/home/books">Home </a>/ My cart</h5>
 
     <div class="cart">
-        <h2>My cart <span>({{count}})</span></h2>
-        <mat-form-field appearance="outline">
-            <mat-select>
-              <mat-option>
-                {{address}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-    </div>
+        <div class="title">
+            <h2>My cart <span>({{count}})</span></h2>
+            <mat-form-field appearance="outline">
+                <mat-label><mat-icon style="color: red;">location_on</mat-icon> Use current location</mat-label>
+                <mat-select>
+                  <!-- <mat-option>
+                    Use current location
+                  </mat-option> -->
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div class="books-container">
+            <div class="books" *ngFor="let book of books">
+                <div class="data">
+                    <img src="../../../assets/images/book_front.png" alt="">
+                    <div class="content">
+                        <h4>{{book.bookName}}</h4>
+                        <h6>by {{book.author}}</h6>
+                        <h5>Rs. {{book.discountPrice}} <span>Rs. {{book.price}}</span></h5>
+                        <div class="options">
+                            <button (click)="reduce(book.bookId, message.value)"><mat-icon>remove</mat-icon></button>
+                            <input type="text" [(ngModel)]="dictionary" style="display: none;">
+                            <span>{{dictionary.get(book.bookId)}}</span>
+                            <!-- <span>{{book.quantity}}</span> -->
+                            <button (click)="increase(book.bookId)"><mat-icon>add</mat-icon></button>
 
-    <div class="customer">
-        <h2>Customer Details</h2>
-        <div class="data">
-            <div class="first">
-                <div class="name">
-                    <h3>Full Name</h3>
-                    <span>{{}}</span>
-                </div>
-                <div class="mob">
-                    <h3>Mobile Number</h3>
-                    <span>{{}}</span>
-                </div>
-            </div>
-            <div class="second">
-                <h2>1. WORK</h2>
-                <h3>Address</h3>
-                <span>{{}}</span>
-            </div>
-            <div class="third">
-                <div class="city">
-                    <h3>city/town</h3>
-                    <span>{{}}</span>
-                </div>
-                <div class="state">
-                    <h3>State</h3>
-                    <span>{{}}</span>
+                            <button class="remBtn" (click)="removeFromCart(book.bookId,message.value)">Remove</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
+
+        <div class="btn">
+            <button mat-flat-button class="placeBtn" (click)="openAddressTab()" *ngIf="!addressOpen">Place Order</button>
+        </div>
     </div>
 
-    <div class="orderItems">
-
+    <div class="customer" *ngIf="addressOpen">
+        <div class="customer-title">
+            <h2>Customer Details</h2>
+            <button mat-flat-button class="addressBtn">Add New Address</button>
+        </div>
+        <div class="customer-content">
+            <div class="first">
+                <h3>Full Name</h3>
+                <h3>Mobile Number</h3>
+            </div>
+            <div class="second">
+                <span>{{userDetails.fullName}}</span>
+                <span>{{userDetails.phone}}</span>
+            </div>
+            <div class="third">
+                <h3>Address</h3>
+                <span>{{userDetails.fullAddress}}</span>
+            </div>
+            <div class="fourth">
+                <h3>city/town</h3>
+                <h3>State</h3>
+            </div>
+            <div class="fifth">
+                <span>{{userDetails.city}}</span>
+                <span>{{userDetails.state}}</span>
+            </div>
+            <div class="sixth">
+                <h3>Type</h3>
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button id="Home" value="1">Home</mat-radio-button>
+                    <mat-radio-button id="Work" value="2" checked>Work</mat-radio-button>
+                    <mat-radio-button id="Other" value="3">Other</mat-radio-button>
+                  </mat-radio-group>
+            </div>
+        </div>
+        <div class="btn">
+            <button mat-flat-button class="placeBtn" (click)="openOrderTab()" *ngIf="!orderOpen">Continue</button>
+        </div>
     </div>
-</div> -->
+
+    <div class="customerTab" *ngIf="!addressOpen">
+        <h2>Address Details</h2>
+    </div>
+
+    <div class="orderItems" *ngIf="orderOpen">
+        <h2>Order summary</h2>
+        <div class="books-container">
+            <div class="books" *ngFor="let book of books">
+                <div class="data">
+                    <img src="../../../assets/images/book_front.png" alt="">
+                    <div class="content">
+                        <h4>{{book.bookName}}</h4>
+                        <h6>by {{book.author}}</h6>
+                        <h5>Rs. {{book.discountPrice}} <span>Rs. {{book.price}}</span></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn">
+            <button mat-flat-button class="placeBtn" (click)="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <div class="orderTab" *ngIf="!orderOpen">
+        <h2>Order summary</h2>
+    </div>
+</div>
+
+
+<mat-form-field appearance="fill" style="visibility: hidden;">
+    <mat-label>Message</mat-label>
+    <input matInput value="Book removed from cart successfully" #message>
+</mat-form-field>

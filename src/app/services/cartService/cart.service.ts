@@ -21,7 +21,7 @@ export class CartService {
         'Authorization': 'Bearer ' + this.tokenValue
       })
     }
-    return this.http.getMethod(this.bUrl + 'Book',true,header)
+    return this.http.getMethod(this.bUrl + 'Cart',true,header)
   }
 
   addToCart(bookId:number) {
@@ -33,4 +33,25 @@ export class CartService {
     }
     return this.http.postMethod(`${this.bUrl}Cart/${bookId}`, {},true,header)
   }
+
+  removeFromCart(bookId:number) {
+    let header = {
+      headers:new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.http.deleteMethod(`${this.bUrl}Cart/${bookId}`,true,header)
+  }
+
+  updateQuantity(data:any, bookId:number) {
+    let header = {
+      headers:new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.http.putMethod(`${this.bUrl}Cart/${bookId}`, data, true,header)
+  }
+
 }
