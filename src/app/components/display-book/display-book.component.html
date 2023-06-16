@@ -1,0 +1,16 @@
+<div class="main">
+    <div class="title">
+        <h2>Books <span>({{count}} items)</span></h2>
+        <mat-form-field appearance="outline">
+            <mat-label>Sort by relevance</mat-label>
+            <mat-select>
+              <mat-option>
+                Sort by relevance
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="books">
+      <app-book (countEvent)="receiveCount($event)"></app-book>
+    </div>
+</div>

@@ -14,7 +14,7 @@
 }
 
 .card1 mat-card {
-    padding: 40px;
+    padding: 60px;
     background-color: #F5F5F5;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -25,14 +25,15 @@
 
 
 .card2 {
-    min-width: 340px;
+    // min-width: 340px;
     box-shadow: 0px 5px 15px #00000029;
     border-radius: 6px;
     z-index: 1;
 }
 
 .card2 mat-card {
-    height: 420px;
+    height: 440px;
+    padding: 15px;
 }
 
 img {
@@ -44,10 +45,11 @@ img {
 .btns {
     display: flex;
     justify-content: space-around;
+    padding: 15px;
 }
 
 .btns a {
-    margin: 10px;
+    // margin: 10px;
     text-decoration: none;
     color: #878787;
     letter-spacing: 0;
@@ -72,7 +74,7 @@ img {
 .formContainer {
     display: flex;
     margin-top: 10px;
-    padding: 10px;
+    padding: 10px 40px;
 }
 
 .formContainer p {

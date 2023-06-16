@@ -1,0 +1,35 @@
+.main {
+    width: 75%;
+    margin: 30px auto;
+}
+
+.main .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 span {
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+.books {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.books app-book {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 10px;
+    width: 140px;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+    top: -1em;
+}

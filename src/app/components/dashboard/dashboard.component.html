@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+<div class="container">
+    <nav>
+        <div class="logo">
+            <img src="../../../assets/images/logo.png" alt="">
+            <h3>Bookstore</h3>
+        </div>
+        
+        <div class="search-bar">
+            <mat-icon class="material-icons-outlined">search</mat-icon> 
+          <input type="text" placeholder="Search" class="search" (input)="searchData($event)">
+        </div>
+        <div class="header-second">
+          <a [matMenuTriggerFor]="menu"> 
+            <mat-icon class="material-icons-outlined">person</mat-icon><br>
+            Profile
+          </a>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink = "/login" (click)="logout(message.value)">Sign out</button>
+            <button mat-menu-item routerLink = "/home/wishlist">Wishlist</button>
+          </mat-menu>
+          <a>
+            <mat-icon class="material-icons-outlined">shopping_cart</mat-icon><br>
+            Cart
+          </a>
+        </div>
+    </nav>
+
+    <div class="books">
+      <router-outlet></router-outlet>
+    </div>
+
+    <footer>
+      <div class="content">
+        <h5>Copyright &#169;	2023, Bookstore Private Limited. All Rights Reserved</h5>
+      </div>
+    </footer>
+</div>
+
+
+<mat-form-field appearance="fill" style="visibility: hidden;">
+  <mat-label>Message</mat-label>
+  <input matInput value="Logged out Successfullly" #message>
+</mat-form-field>

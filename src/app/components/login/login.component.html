@@ -17,7 +17,7 @@
                     </a>
                 </div>
                 <div class="formContainer">
-                    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit(message.value)">
                         <p>Email Id</p>
                         <mat-form-field appearance="outline">
                             <!-- <mat-label>Email</mat-label> -->
@@ -63,3 +63,8 @@
         </div>
     </div>
 </div>
+
+<mat-form-field appearance="fill" style="visibility: hidden;">
+    <mat-label>Message</mat-label>
+    <input matInput value="Login Successful" #message>
+</mat-form-field>

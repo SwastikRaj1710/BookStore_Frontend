@@ -1,0 +1,11 @@
+<div class="container" *ngFor="let book of books | filter: message" (click)="openBook(book)">
+    <div class="img">
+        <img src="../../../assets/images/book_front.png" alt="">
+    </div>
+    <div class="main">
+        <h4>{{book.bookName}}</h4>
+        <h6>by {{book.author}}</h6>
+        <h6><span>4.5 *</span> (20)</h6>
+        <h5>Rs. {{book.discountPrice}} <span>Rs. {{book.price}}</span></h5>
+    </div>
+</div>

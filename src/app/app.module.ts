@@ -11,13 +11,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 
+
+import { AuthguardService } from './services/authGuardService/authguard.service';
 
 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DisplayBookComponent } from './components/display-book/display-book.component';
+import { BookComponent } from './components/book/book.component';
+import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { CartComponent } from './components/cart/cart.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 
@@ -25,7 +37,14 @@ import { RegisterComponent } from './components/register/register.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent,
+    DisplayBookComponent,
+    BookComponent,
+    BookDetailsComponent,
+    WishlistComponent,
+    CartComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -38,9 +57,12 @@ import { RegisterComponent } from './components/register/register.component';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatSelectModule,
+    MatMenuModule
   ],
-  providers: [],
+  providers: [AuthguardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

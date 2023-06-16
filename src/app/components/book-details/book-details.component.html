@@ -1,0 +1,94 @@
+<div class="container">
+    <h5><a routerLink="/home/books">Home </a>/ Book({{bookData.bookId}})</h5>
+    <div class="main">
+        <div class="smallImg">
+            <div class="img">
+                <img src="../../../assets/images/book_front.png" alt="">    
+            </div>
+            <div class="img">
+                <img src="../../../assets/images/book_back.png" alt="">
+            </div>
+        </div>
+        <div class="second">
+            <div class="largeImg">
+                <img src="../../../assets/images/book_front.png" alt="">
+            </div>
+            <div class="btns">
+                <button mat-flat-button class="cartBtn" (click)="addToCart(bookData.bookId,message.value)">ADD TO BAG</button>
+                <button mat-flat-button class="listBtn" (click)="addToWishlist(bookData.bookId,message2.value)"><mat-icon>favorite</mat-icon>WISHLIST</button>
+            </div>
+        </div>
+        <div class="third">
+            <h2>{{bookData.bookName}}</h2>
+            <h4>by {{bookData.author}}</h4>
+            <h4><span>4.5 *</span> (20)</h4>
+            <h1>Rs. {{bookData.discountPrice}} <span>Rs. {{bookData.price}}</span></h1>
+
+            <div class="content">
+                <h3><span style="color: #9D9D9D; font-weight: bolder; font-size: 20px;">&#183;</span> Book Detail</h3>
+                <h4>{{bookData.description}}</h4>
+            </div>
+
+            <div class="content2">
+                <h2>Customer Feedback</h2>
+                <div class="ratingForm">
+                    <h4>Overall rating</h4>
+                    <div class="stars">
+                        <mat-icon>star_border</mat-icon>
+                        <mat-icon>star_border</mat-icon>
+                        <mat-icon>star_border</mat-icon>
+                        <mat-icon>star_border</mat-icon>
+                        <mat-icon>star_border</mat-icon>
+                    </div>
+                    <textarea name="review" id="review" cols="30" rows="3" placeholder="Write your review"></textarea>
+                    <button mat-flat-button class="submitBtn">Submit</button>
+                </div>
+            </div>
+            <div class="review">
+                <div class="initials">
+                    <p>AC</p>
+                </div>
+                <div class="review-content">
+                    <h4>Aniket Chile</h4>
+                    <div class="stars-filled">
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon class="outline">star_border</mat-icon>
+                        <mat-icon class="outline">star_border</mat-icon>
+                    </div>
+                    <p>Good product. Even though the transition could have been better. Chanakya's neeti are thought providing. Chanakya has written on many different topics and his writings are succinct.</p>
+                </div>
+
+            </div>
+            <div class="review">
+                <div class="initials">
+                    <p>SB</p>
+                </div>
+                <div class="review-content">
+                    <h4>Shweta Bodkar</h4>
+                    <div class="stars-filled">
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon class="outline">star_border</mat-icon>
+                    </div>
+                    <p>Good product. Even though the transition could have been better. Chanakya's neeti are thought providing. Chanakya has written on many different topics and his writings are succinct.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<mat-form-field appearance="fill" style="visibility: hidden;">
+    <mat-label>Message</mat-label>
+    <input matInput value="Book added to Cart successfully" #message>
+</mat-form-field>
+
+<mat-form-field appearance="fill" style="visibility: hidden;">
+    <mat-label>Message</mat-label>
+    <input matInput value="Book added to Wishlist successfully" #message2>
+</mat-form-field>

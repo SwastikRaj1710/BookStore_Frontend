@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/userService/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,9 @@ export class LoginComponent implements OnInit {
 
   showPassword: boolean = false;
   loginForm!: FormGroup;
-  submitted = false;
+  submitted:boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private user:UserService, private route:Router) { }
+  constructor(private formBuilder: FormBuilder, private user:UserService, private route:Router, private snackBar:MatSnackBar) { }
 
   ngOnInit() {
       this.loginForm = this.formBuilder.group({
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
 
-  onSubmit() {
+  onSubmit(message:string) {
       this.submitted = true;
 
       // stop here if form is invalid
@@ -46,6 +47,10 @@ export class LoginComponent implements OnInit {
         this.user.login(loginData).subscribe((response:any)=>{
             console.log(response.data)
             localStorage.setItem('token',response.data)
+            this.route.navigateByUrl('/home/books')
+            this.snackBar.open(message, '', {
+              duration: 3000,
+            });
         },(error: any)=>{
             console.log(error)
         })
