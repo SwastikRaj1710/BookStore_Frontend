@@ -78,7 +78,6 @@ export class CartComponent implements OnInit {
   }
 
   increase(bookId:number) {
-    
     this.dictionary.set(bookId,this.dictionary.get(bookId));
     this.quant = this.dictionary.get(bookId);
     this.updateQuantity(this.quant+=1,bookId);
@@ -103,14 +102,6 @@ export class CartComponent implements OnInit {
   openAddressTab() {
     this.addressOpen = true;
     this.getUserDetails();
-    // const radioHome = document.getElementById("Home") as HTMLElement;
-    // const radioWork = document.getElementById("Work");
-    // const radioOther = document.getElementById("Other");
-    // if(this.userDetails.addressType == "Work") {
-    //   radioHome.checked = true;
-
-    //   radioWork.chec
-    // }
   }
 
   openOrderTab() {
@@ -118,7 +109,15 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-
+    this.cart.removeAll().subscribe((res:any)=> {
+      console.log(res);
+    },(error: any)=>{
+      this.snackBar.open("Unable to fetch user details", '', {
+        duration: 3000,
+      })
+      console.log(error)
+    })
+    this.router.navigateByUrl("/home/order");
   }
 
   getUserDetails() {
@@ -135,9 +134,10 @@ export class CartComponent implements OnInit {
 
 
   reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([currentUrl]);
-    });
+    // let currentUrl = this.router.url;
+    // this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+    //     this.router.navigate([currentUrl]);
+    // });
+    window.location.reload();
   }
 }

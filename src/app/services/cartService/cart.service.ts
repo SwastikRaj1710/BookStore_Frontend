@@ -54,4 +54,14 @@ export class CartService {
     return this.http.putMethod(`${this.bUrl}Cart/${bookId}`, data, true,header)
   }
 
+  removeAll() {
+    let header = {
+      headers:new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.tokenValue
+      })
+    }
+    return this.http.deleteMethod(this.bUrl + 'Cart', true,header)
+  }
+
 }

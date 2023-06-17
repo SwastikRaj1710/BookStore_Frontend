@@ -1,6 +1,12 @@
 .container {
-    width: 70%;
-    margin: 20px auto;
+    width: 55%;
+    margin: 20px 0;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    // margin: 10px 50px;
+    // width: 60%;
+    justify-content: start;
 }
 
 h5 {
@@ -32,7 +38,7 @@ h5 a {
 .books {
     display: flex;
     justify-content: space-between;
-    padding: 50px;
+    padding: 20px 50px;
     // border-bottom: 1px solid #E4E4E4;
 }
 
@@ -104,8 +110,6 @@ h5 span {
     color: white;
 }
 
-
-
 .customer {
     display: flex;
     flex-direction: column;
@@ -122,6 +126,7 @@ h5 span {
 
 .customer-title button {
     border: 1px solid #A03037;
+    color: #A03037;
 }
 
 .customer-content {
@@ -162,7 +167,7 @@ h3 {
 }
 
 mat-radio-button {
-    margin-right: 100px;
+    margin-right: 60px;
 }
 
 .customerTab {

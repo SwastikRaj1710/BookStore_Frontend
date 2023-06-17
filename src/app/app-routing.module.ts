@@ -8,16 +8,18 @@ import { DisplayBookComponent } from './components/display-book/display-book.com
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { CartComponent } from './components/cart/cart.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'/login', pathMatch:'full'},
+  {path:'', redirectTo:'/home/books', pathMatch:'full'},
   {path: 'login', component:LoginComponent},
   {path: 'register', component:RegisterComponent},
-  {path: 'home', component:DashboardComponent, canActivate:[AuthenticationGuard],
+  {path: 'home', component:DashboardComponent,
     children : [{path: 'books', component:DisplayBookComponent},
                 {path:'book', component:BookDetailsComponent},
-                {path:'wishlist', component:WishlistComponent},
-                {path:'cart', component:CartComponent},
+                {path:'wishlist', component:WishlistComponent, canActivate:[AuthenticationGuard]},
+                {path:'cart', component:CartComponent, canActivate:[AuthenticationGuard]},
+                {path:'order', component:OrderSuccessComponent, canActivate:[AuthenticationGuard]}
     ]
   }
 ];
